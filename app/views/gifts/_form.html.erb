@@ -1,0 +1,53 @@
+<%= form_for @gift, :html => { :multipart => true } do |f| %>
+  <% if @gift.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@gift.errors.count, "error") %> prohibited this gift from being saved:</h2>
+
+      <ul>
+      <% @gift.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :completed %>    <%= f.check_box :completed %>
+  </div>
+  <div class="field">
+    <%= f.label :lowerAmount %>    <%= f.text_field :lowerAmount %>
+  </div>
+  <div class="field">
+    <%= f.label :higherAmount %>    <%= f.text_field :higherAmount %>
+  </div>
+  <div class="field">
+    <%= f.label :redeem %>    <%= f.text_field :redeem %>
+  </div>
+  <div class="field">
+    <%= f.label :expiry %>
+    <%= f.text_field :expiry %>
+  </div>
+  <div class="field">
+    <%= f.label :delivery %>    <%= f.text_field :delivery %>
+  </div>
+  <div class="field">
+    <%= f.label :shortDescription %>    <%= f.text_area :shortDescription %>
+  </div>
+  <div class="field">
+    <%= f.label :fullDescription %>    <%= f.text_area :fullDescription %>
+  </div>
+  <div class="field">
+    <%= f.label :note %>    <%= f.text_area :note %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %>    <%= f.file_field :image %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
