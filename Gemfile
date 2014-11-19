@@ -14,6 +14,8 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
+gem 'bower-rails'
+
 #Easy file attachment management for ActiveRecord https://github.com/thoughtbot/paperclip#image-processor
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 
