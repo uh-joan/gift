@@ -1,0 +1,18 @@
+<div class="container-fluid" >
+    <div class="row">
+
+        <div class="col-md-2">
+            Search <input ng-model="query.title">
+        </div>
+
+        <div class="col-md-10">
+            <ul class="gifts">
+                <li ng-repeat="gift in gifts | filter:query">
+                    <a href="#/agifts/{{gift.id}}"> {{gift.title}} </a>
+                    <p>{{gift.shortDescription}}</p>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>

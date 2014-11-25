@@ -16,4 +16,8 @@
 //= require angular
 //= require angular-route
 //= require angular-resource
+//= require angular-rails-templates
+// Templates in app/assets/javascript/templates
+//= require_tree ../templates
+//= require bootstrap-sass
 //= require_tree .

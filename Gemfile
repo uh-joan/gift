@@ -16,6 +16,8 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'bower-rails'
 
+gem 'angular-rails-templates'
+
 #Easy file attachment management for ActiveRecord https://github.com/thoughtbot/paperclip#image-processor
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 

@@ -1,0 +1,31 @@
+<div class="container-fluid" >
+    <div class="row">
+        <div class="col-md-12">
+            <h3>{{gift.title}}</h3>
+        </div>
+
+        <div class="col-md-3">
+            <p>Redeemable {{gift.redeem}}</p>
+        </div>
+
+        <div class="col-md-3">
+            <p>Between {{gift.lowerAmount}}£ and {{gift.higherAmount}}£</p>
+        </div>
+
+        <div class="col-md-3">
+            <p>{{gift.expiry}} expiration</p>
+        </div>
+
+        <div class="col-md-3">
+            <p>{{gift.delivery}} delivery</p>
+        </div>
+
+        <div class="col-md-12">
+            <p>{{gift.fullDescription}}</p>
+        </div>
+
+        <div class="col-md-12">
+            <p ng-if="gift.note">* {{gift.note}}</p>
+        </div>
+    </div>
+</div>
