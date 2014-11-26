@@ -10,6 +10,10 @@ angular
                 templateUrl : 'gift-detail.html',
                 controller: 'GiftDetailCtrl'
         }).
+            when('/agifts/purchase/:giftId', {
+                templateUrl : 'gift-purchase.html',
+                controller: 'GiftPurchaseCtrl'
+        }).
             otherwise({
                 redirectTo: '/agifts'
         });
