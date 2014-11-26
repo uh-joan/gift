@@ -4,11 +4,13 @@ module Api
       respond_to :json
 
       def index
-        respond_with Gift.all
+        @gifts = Gift.all
+        respond_with @gifts.to_json(:methods => [:image_url])
       end
 
       def show
-        respond_with Gift.find(params[:id])
+        @gift = Gift.find(params[:id])
+        respond_with @gift.to_json(:methods => [:image_url])
       end
 
       def create
