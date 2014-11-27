@@ -13,17 +13,17 @@ module Api
         respond_with @gift.to_json(:methods => [:image_url])
       end
 
-      def create
-        respond_with Gift.create(params[:gift])
-      end
-
-      def update
-        respond_with Gift.update(params[:id], params[:product])
-      end
-
-      def destroy
-        respond_with Gift.destroy(params[:id])
-      end
+      # def create
+      #   respond_with Gift.create(params[:gift])
+      # end
+      #
+      # def update
+      #   respond_with Gift.update(params[:id], params[:product])
+      # end
+      #
+      # def destroy
+      #   respond_with Gift.destroy(params[:id])
+      # end
 
     end
   end

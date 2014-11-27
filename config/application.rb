@@ -30,6 +30,5 @@ module GiftbelltestV2
 #     config.assets.precompile << %r(bootstrap-sass/assets/fonts/bootstrap/[\w-]+\.(?:eot|svg|ttf|woff)$)
 # # Minimum Sass number precision required by bootstrap-sass
 #     ::Sass::Script::Number.precision = [10, ::Sass::Script::Number.precision].max
-
   end
 end
