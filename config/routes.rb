@@ -3,10 +3,12 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
       resources :gifts
+      resources :purchases
     end
   end
 
   resources :gifts
+  resources :purchases
 
   #root 'gifts#index'
 

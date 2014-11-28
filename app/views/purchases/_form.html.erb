@@ -1,0 +1,61 @@
+<%= form_for(@purchase) do |f| %>
+  <% if @purchase.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@purchase.errors.count, "error") %> prohibited this purchase from being saved:</h2>
+
+      <ul>
+      <% @purchase.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :identifier %><br>
+    <%= f.text_field :identifier %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.text_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :senderName %><br>
+    <%= f.text_field :senderName %>
+  </div>
+  <div class="field">
+    <%= f.label :senderEmail %><br>
+    <%= f.text_field :senderEmail %>
+  </div>
+  <div class="field">
+    <%= f.label :recipientName %><br>
+    <%= f.text_field :recipientName %>
+  </div>
+  <div class="field">
+    <%= f.label :recipientEmail %><br>
+    <%= f.text_field :recipientEmail %>
+  </div>
+  <div class="field">
+    <%= f.label :message %><br>
+    <%= f.text_field :message %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.text_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label :vendor %><br>
+    <%= f.text_field :vendor %>
+  </div>
+  <div class="field">
+    <%= f.label :completed %><br>
+    <%= f.check_box :completed %>
+  </div>
+  <div class="field">
+    <%= f.label :confirmedPayment %><br>
+    <%= f.check_box :confirmedPayment %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,16 +1,16 @@
 class CreateGifts < ActiveRecord::Migration
   def change
     create_table :gifts do |t|
-      t.string :title
-      t.boolean :completed
-      t.float :lowerAmount
-      t.float :higherAmount
-      t.string :redeem
-      t.string :expiry
-      t.string :delivery
-      t.text :shortDescription
-      t.text :fullDescription
-      t.text :note
+      t.string :title, null:false
+      t.boolean :completed, default: false
+      t.float :lowerAmount, default: nil
+      t.float :higherAmount, default: nil
+      t.string :redeem, default: nil
+      t.string :expiry, default: nil
+      t.string :delivery, default: nil
+      t.text :shortDescription, default: nil
+      t.text :fullDescription, default: nil
+      t.text :note, default: nil
 
       t.timestamps
     end

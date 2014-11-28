@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Identifier:</strong>
+  <%= @purchase.identifier %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @purchase.amount %>
+</p>
+
+<p>
+  <strong>Sendername:</strong>
+  <%= @purchase.senderName %>
+</p>
+
+<p>
+  <strong>Senderemail:</strong>
+  <%= @purchase.senderEmail %>
+</p>
+
+<p>
+  <strong>Recipientname:</strong>
+  <%= @purchase.recipientName %>
+</p>
+
+<p>
+  <strong>Recipientemail:</strong>
+  <%= @purchase.recipientEmail %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @purchase.message %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @purchase.status %>
+</p>
+
+<p>
+  <strong>Vendor:</strong>
+  <%= @purchase.vendor %>
+</p>
+
+<p>
+  <strong>Completed:</strong>
+  <%= @purchase.completed %>
+</p>
+
+<p>
+  <strong>Confirmedpayment:</strong>
+  <%= @purchase.confirmedPayment %>
+</p>
+
+<%= link_to 'Edit', edit_purchase_path(@purchase) %> |
+<%= link_to 'Back', purchases_path %>

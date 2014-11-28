@@ -6,12 +6,14 @@
         </div>
     </div>
 
-    <form class="form-horizontal">
+    <form class="form-horizontal" >
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <label>Select amount:</label>
                 <div class="input-group">
-                    <input type="text" placeholder="between {{gift.lowerAmount}}£ and {{gift.higherAmount}}£">
+                    <input type="text"
+                           placeholder="between {{gift.lowerAmount}}£ and {{gift.higherAmount}}£"
+                           ng-model="newPurchase.amount">
                 </div>
             </div>
         </div>
@@ -20,14 +22,16 @@
             <div class="col-md-offset-2 col-md-4">
                 <label>Your name:</label>
                 <div class="input-group">
-                    <input type="text">
+                    <input type="text"
+                           ng-model="newPurchase.senderName">
                 </div>
             </div>
 
             <div class="col-md-4">
                 <label>Recipient's name:</label>
                 <div class="input-group">
-                    <input type="text">
+                    <input type="text"
+                           ng-model="newPurchase.recipientName">
                 </div>
             </div>
         </div>
@@ -36,14 +40,16 @@
             <div class="col-md-offset-2 col-md-4">
                 <label>Your e'mail:</label>
                 <div class="input-group">
-                    <input type="email">
+                    <input type="email"
+                           ng-model="newPurchase.senderEmail">
                 </div>
             </div>
 
             <div class="col-md-4">
                 <label>Recipient's e'mail:</label>
                 <div class="input-group">
-                    <input type="email">
+                    <input type="email"
+                           ng-model="newPurchase.recipientEmail">
                 </div>
             </div>
         </div>
@@ -52,11 +58,23 @@
             <div class="col-md-offset-2 col-md-10">
                 <label>Write a quick note:</label>
                 <div class="input-group input-group-lg">
-                    <textarea class="form-control" rows="5"></textarea>
+                    <textarea class="form-control" rows="5"
+                              ng-model="newPurchase.message"></textarea>
                 </div>
             </div>
         </div>
 
+        <p ng-model="newPurchase.vendor" value="{{gift.title}}">{{gift.title}}</p>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button ng-click="save(newPurchase)">Buy</button>
+            </div>
+        </div>
+
+
     </form>
+
+    {{purchases}}
 
 </div>
