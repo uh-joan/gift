@@ -1,0 +1,9 @@
+<h3>Shopping for {{purchase.vendor}}, total {{purchase.amount}}</h3>
+<div class="container-fluid" >
+    <!--<form stripe:form="saveCustomer">-->
+    <form stripe-form="stripeCallback">
+        <input ng-model="number" placeholder="Card Number" />
+        <input ng-model="expiry" placeholder="Expiration" />
+        <input ng-model="cvc" placeholder="CVC" />
+        <button type="submit">Submit</button> </form>
+</div>

@@ -21,6 +21,8 @@ gem 'bower-rails'
 gem 'angular-rails-templates'
 gem 'rack-cors', :require => 'rack/cors'
 
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
 #Easy file attachment management for ActiveRecord https://github.com/thoughtbot/paperclip#image-processor
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 

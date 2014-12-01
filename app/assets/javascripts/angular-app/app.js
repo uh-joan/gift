@@ -1,5 +1,8 @@
 angular
-    .module('app', ['ngRoute', 'ngResource', 'templates'])
+    .module('app', ['ngRoute', 'ngResource', 'templates', 'angularPayments'])
+    .config(function() {
+        Stripe.setPublishableKey('pk_test_pim5DmVFetHEZO75KX8rAL1K');
+    })
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.
             when('/agifts', {
@@ -13,6 +16,10 @@ angular
             when('/agifts/purchase/:giftId', {
                 templateUrl : 'gift-purchase.html',
                 controller: 'GiftPurchaseCtrl'
+        }).
+            when('/agifts/pay/:purchaseId', {
+                templateUrl : 'gift-pay.html',
+                controller: 'GiftPayCtrl'
         }).
             otherwise({
                 redirectTo: '/agifts'

@@ -14,7 +14,7 @@ angular
         //$scope.giftId = $routeParams.giftId;
 
     }])
-    .controller('GiftPurchaseCtrl', ['Gift', 'Purchase', '$scope', '$routeParams', function (Gift, Purchase, $scope, $routeParams) {
+    .controller('GiftPurchaseCtrl', ['Gift', 'Purchase', '$location', '$scope', '$routeParams', function (Gift, Purchase, $location, $scope, $routeParams) {
 
         //$scope.gifts = Gift.query();
 
@@ -24,15 +24,47 @@ angular
 
         $scope.newPurchase = new Purchase();
 
+        $scope.purchaseId = 0;
+
         $scope.save = function (p){
             $scope.newPurchase.completed=false;
             $scope.newPurchase.comfirmedPayment=false;
             $scope.newPurchase.status="confirming";
             $scope.newPurchase.vendor = $scope.gift.title;
-            console.log(p);
-            p.$save();
+
+            p.$save(function (response) {
+                //$scope.purchaseId = response.id;
+                //console.log($scope.purchaseId);
+
+                Purchase.get ({id:response.id}).$promise.then(
+                    function (purchase){
+                        $scope.goto(purchase.id);
+                    });
+            });
         };
 
+        $scope.goto = function (path) {
+            console.log("#/agifts/pay/"+ path);
+            $location.path ("agifts/pay/"+ path);
+
+        }
         //$scope.giftId = $routeParams.giftId;
 
-    }]);
+    }])
+    .controller('GiftPayCtrl', ['$scope', 'Purchase', '$routeParams', function ($scope, Purchase, $routeParams){
+
+        $scope.purchase = Purchase.get({id:$routeParams.purchaseId});
+
+        $scope.stripeCallback = function (code, result) {
+            if (result.error) {
+                console.log('it failed! error: ' + result.error.message);
+            }
+            else {
+                console.log('Success! token: ' + result.id);
+            }
+        };
+
+}]);
+//    .controller('GiftPayCtrl', ['stripe', function (stripe) {
+//    }])
+//;

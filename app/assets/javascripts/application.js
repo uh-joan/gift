@@ -18,6 +18,7 @@
 //= require angular-route
 //= require angular-resource
 //= require angular-rails-templates
+//= require angular-payments
 // Templates in app/assets/javascript/templates
 //= require_tree ../templates
 //= require_tree .
