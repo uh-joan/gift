@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   #root 'gifts#index'
 
+  mount StripeEvent::Engine => '/stripe-webhooks'
+
   root 'application#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
