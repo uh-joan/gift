@@ -21,7 +21,7 @@ angular
                 templateUrl : 'gift-pay.html',
                 controller: 'GiftPayCtrl'
         }).
-            otherwise({
-                redirectTo: '/agifts'
+        otherwise({
+            redirectTo: '/agifts'
         });
     }]);

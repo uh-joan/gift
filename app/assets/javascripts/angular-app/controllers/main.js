@@ -16,15 +16,11 @@ angular
     }])
     .controller('GiftPurchaseCtrl', ['Gift', 'Purchase', '$location', '$scope', '$routeParams', function (Gift, Purchase, $location, $scope, $routeParams) {
 
-        //$scope.gifts = Gift.query();
-
         $scope.gift = Gift.get({id:$routeParams.giftId});
-
-//        $scope.purchases = Purchase.query();
 
         $scope.newPurchase = new Purchase();
 
-        $scope.purchaseId = 0;
+//        $scope.purchaseId = 0;
 
         $scope.save = function (p){
             $scope.newPurchase.completed=false;
@@ -38,33 +34,46 @@ angular
 
                 Purchase.get ({id:response.id}).$promise.then(
                     function (purchase){
-                        $scope.goto(purchase.id);
+                        $scope.goto(purchase.id);//redirect to pay
                     });
             });
         };
 
         $scope.goto = function (path) {
-            console.log("#/agifts/pay/"+ path);
+            //console.log("#/agifts/pay/"+ path);
             $location.path ("agifts/pay/"+ path);
 
         }
         //$scope.giftId = $routeParams.giftId;
 
     }])
-    .controller('GiftPayCtrl', ['$scope', 'Purchase', '$routeParams', function ($scope, Purchase, $routeParams){
+    .controller('GiftPayCtrl', ['$scope', 'Charge', 'Purchase', '$routeParams', '$location', function ($scope, Charge, Purchase, $routeParams, $location){
 
         $scope.purchase = Purchase.get({id:$routeParams.purchaseId});
 
-        $scope.stripeCallback = function (code, result) {
-            if (result.error) {
-                console.log('it failed! error: ' + result.error.message);
+        $scope.newCharge = new Charge();
+
+        $scope.stripeCallback = function (status, token) {
+            if (token.error) {
+                console.log('it failed! error: ' + token.error.message);
             }
             else {
-                console.log('Success! token: ' + result.id);
+                console.log('Token: ' + token.id);
+
+                $scope.newCharge.stripeToken = token.id;
+                $scope.newCharge.email = $scope.purchase.senderEmail;
+                $scope.newCharge.amount = ($scope.purchase.amount*105)+30;
+                $scope.newCharge.$save(function (response){
+                    Charge.get ({id:response.id}).$promise.then(
+                        function (charge) {
+                            console.log('Charge: ' + charge.amount);
+                        });
+                });
+                console.log('Success! Payment made to stripe');
+
+                $location.path('agifts')
+
             }
         };
-
-}]);
-//    .controller('GiftPayCtrl', ['stripe', function (stripe) {
-//    }])
-//;
+}])
+;

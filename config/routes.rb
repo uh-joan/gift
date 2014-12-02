@@ -4,11 +4,13 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :gifts
       resources :purchases
+      resources :charges
     end
   end
 
   resources :gifts
   resources :purchases
+  resources :charges
 
   #root 'gifts#index'
 

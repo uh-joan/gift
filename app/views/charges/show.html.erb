@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Identifier:</strong>
+  <%= @charge.identifier %>
+</p>
+
+<p>
+  <strong>Stripetoken:</strong>
+  <%= @charge.stripeToken %>
+</p>
+
+<p>
+  <strong>Currency:</strong>
+  <%= @charge.currency %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @charge.amount %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @charge.email %>
+</p>
+
+<p>
+  <strong>Completed:</strong>
+  <%= @charge.completed %>
+</p>
+
+<%= link_to 'Edit', edit_charge_path(@charge) %> |
+<%= link_to 'Back', charges_path %>
