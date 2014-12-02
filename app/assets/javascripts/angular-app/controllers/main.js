@@ -49,6 +49,12 @@ angular
     }])
     .controller('GiftPayCtrl', ['$scope', 'Charge', 'Purchase', '$routeParams', '$location', function ($scope, Charge, Purchase, $routeParams, $location){
 
+        $scope.backHomeButtonVisible = false;
+
+        $scope.toggleHomeButtonVisible = function (){
+            $scope.backHomeButtonVisible  = !$scope.backHomeButtonVisible ;
+        };
+
         $scope.purchase = Purchase.get({id:$routeParams.purchaseId});
 
         $scope.newCharge = new Charge();
@@ -69,10 +75,9 @@ angular
                             console.log('Charge: ' + charge.amount);
                         });
                 });
+                $scope.toggleHomeButtonVisible();
                 console.log('Success! Payment made to stripe');
-
-                $location.path('agifts')
-
+                //$location.path('agifts')
             }
         };
 }])

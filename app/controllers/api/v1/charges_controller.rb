@@ -28,11 +28,22 @@ module Api
 
         begin
           charge = Stripe::Charge.create(
-              :amount => @charge.amount,
-              :currency => @charge.currency,
-              :card => params[:stripeToken],
-              :description => @charge.identifier
+            :amount => @charge.amount,
+            :currency => @charge.currency,
+            :card => params[:stripeToken],
+            :description => @charge.identifier
           )
+          # customer = Stripe::Charge.create(
+          #     :card => params[:stripeToken],
+          #     :email => @charge.email
+          # )
+          #
+          # charge = Stripe::Charge.create(
+          #     :amount => @charge.amount,
+          #     :currency => @charge.currency,
+          #     :customer => customer.id,
+          #     :description => @charge.identifier
+          # )
         rescue Stripe::CardError => e
           flash[:error] = e.message
         end

@@ -5,6 +5,13 @@
         <input ng-model="number" placeholder="Card Number" payments-format="card" payments-validate="card"/>
         <input ng-model="expiry" placeholder="Expiration" payments-format="expiry" payments-validate="expiry"/>
         <input ng-model="cvc" placeholder="CVC" payments-format="cvc" payments-validate="cvc"/>
-        <button type="submit">Submit</button>
+        <!--<p hidden ng-model="name" value="{{purchase.senderEmail}}"></p>-->
+        <button type="submit" >Submit</button>
     </form>
+
+    <br>
+    <div ng-show="backHomeButtonVisible">
+        <p>Payment successful!</p>
+        <a href="#/agifts">Home</a>
+    </div>
 </div>
