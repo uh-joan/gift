@@ -5,11 +5,16 @@ class CrawlerSelector
 
     # in the description there is the purchase identifier uuid
     @purchase = Purchase.find_by_identifier(event.data.object.description);
+
     Rails.logger.debug "Purchase payment confirmed."
 
     if @purchase.confirmedPayment == false
       # 1. Set the purchase.confirmedPayment to true
       @purchase.update_attribute(:confirmedPayment,true);
+
+      # 1,1 Just setting the completed attribute in charge to true
+      @charge= Charge.find_by_identifier(event.data.object.description);
+      @charge.update_attribute(:completed,true);
 
       # 2. change the purchase.status to processing
       @purchase.update_attribute(:status,'processing');
