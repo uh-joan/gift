@@ -25,6 +25,8 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'stripe_event'
 gem 'ultrahook'
 
+gem 'mechanize'
+
 #Easy file attachment management for ActiveRecord https://github.com/thoughtbot/paperclip#image-processor
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 
