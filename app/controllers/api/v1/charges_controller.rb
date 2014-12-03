@@ -14,9 +14,8 @@ module Api
       end
 
       def create
-        @purchases = Purchase.all
         @charge = Charge.new(charge_params)
-        @charge.identifier = SecureRandom.uuid
+        # @charge.identifier = SecureRandom.uuid
         @charge.currency = 'gbp'
 
         if @charge.save

@@ -7,17 +7,10 @@ Rails.configuration.stripe = {
 
 Stripe.api_key = Rails.configuration.stripe[:secret_key]
 
-StripeEvent.subscribe 'charge.succeeded' do |event|
-  Rails.logger.debug "New charge has succeeded, the charge id is #{event.data.object.description}"
-end
+# StripeEvent.subscribe 'charge.succeeded' do |event|
+#   Rails.logger.debug "New charge has succeeded, the charge id is #{event.data.object.description}"
+# end
 
-# class ChargeSucceeded
-#   def call(event)
-#     #event handling
-#      #this would execute the corresponding crawler
-#   end
-# end
-#
-# StripeEvent.configure do |events|
-#   events.subscribe 'charge.succeeded', ChargeSucceeded.new
-# end
+StripeEvent.configure do |events|
+  events.subscribe 'charge.succeeded', CrawlerSelector.new
+end
