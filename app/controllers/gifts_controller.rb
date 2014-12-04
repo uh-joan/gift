@@ -1,5 +1,6 @@
 class GiftsController < ApplicationController
   before_action :set_gift, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user
 
   # GET /gifts
   # GET /gifts.json
@@ -67,8 +68,16 @@ class GiftsController < ApplicationController
       @gift = Gift.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def gift_params
-      params.require(:gift).permit(:title, :completed, :lowerAmount, :higherAmount, :redeem, :expiry, :delivery, :shortDescription, :fullDescription, :note, :image, :image_url)
+  # Confirms a logged-in user.
+  def logged_in_user
+    unless logged_in?
+      flash[:danger] = "Please log in."
+      redirect_to login_url
     end
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def gift_params
+    params.require(:gift).permit(:title, :completed, :lowerAmount, :higherAmount, :redeem, :expiry, :delivery, :shortDescription, :fullDescription, :note, :image, :image_url)
+  end
 end

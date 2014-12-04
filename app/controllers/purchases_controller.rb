@@ -1,5 +1,6 @@
 class PurchasesController < ApplicationController
   before_action :set_purchase, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user
 
   # GET /purchases
   # GET /purchases.json
@@ -67,8 +68,16 @@ class PurchasesController < ApplicationController
       @purchase = Purchase.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def purchase_params
-      params.require(:purchase).permit(:identifier, :amount, :senderName, :senderEmail, :recipientName, :recipientEmail, :message, :status, :vendor, :completed, :confirmedPayment)
+  # Confirms a logged-in user.
+  def logged_in_user
+    unless logged_in?
+      flash[:danger] = "Please log in."
+      redirect_to login_url
     end
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def purchase_params
+    params.require(:purchase).permit(:identifier, :amount, :senderName, :senderEmail, :recipientName, :recipientEmail, :message, :status, :vendor, :completed, :confirmedPayment)
+  end
 end

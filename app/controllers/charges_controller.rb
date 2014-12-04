@@ -1,5 +1,6 @@
 class ChargesController < ApplicationController
   before_action :set_charge, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user
 
   # GET /charges
   # GET /charges.json
@@ -67,8 +68,16 @@ class ChargesController < ApplicationController
       @charge = Charge.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def charge_params
-      params.require(:charge).permit(:identifier, :stripeToken, :currency, :amount, :email, :completed)
+  # Confirms a logged-in user.
+  def logged_in_user
+    unless logged_in?
+      flash[:danger] = "Please log in."
+      redirect_to login_url
     end
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def charge_params
+    params.require(:charge).permit(:identifier, :stripeToken, :currency, :amount, :email, :completed)
+  end
 end

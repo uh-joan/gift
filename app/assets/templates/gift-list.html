@@ -1,21 +1,18 @@
-<div class="container-fluid" >
+<div class="container-fluid">
+
     <div class="row">
-
-        <div class="col-md-2">
+        <aside class="col-md-3">
             Search <input ng-model="query.title">
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-3">
-                <div class="thumbnail" ng-repeat="gift in gifts | filter:query">
-                    <!--<img data-src="{{gift.image_url}}">-->
-                    <div class="caption">
-                        <a href="#/agifts/{{gift.id}}"> {{gift.title}} </a>
-                        <p>{{gift.shortDescription}}</p>
-                    </div>
-                </div>
+        </aside>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-3 thumbnail" ng-repeat="gift in gifts | filter:query">
+            <div class="caption">
+                <a href="#/agifts/{{gift.id}}"> {{gift.title}} </a>
+                <p>{{gift.shortDescription}}</p>
             </div>
         </div>
-
     </div>
+
 </div>

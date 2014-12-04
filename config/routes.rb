@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
+
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
       resources :gifts
@@ -11,6 +15,7 @@ Rails.application.routes.draw do
   resources :gifts
   resources :purchases
   resources :charges
+  resources :users
 
   #root 'gifts#index'
 
