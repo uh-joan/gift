@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: giftbelltest_v2_production
-  username: giftbelltest_v2
-  password: <%= ENV['GIFTBELLTEST_V2_DATABASE_PASSWORD'] %>
+  database: HEROKU_POSTGRESQL_AQUA_URL
+  username: HEROKU_POSTGRESQL_AQUA_URL_USER
+  password: <%= ENV['HEROKU_POSTGRESQL_AQUA_URL_PASSWORD'] %>
