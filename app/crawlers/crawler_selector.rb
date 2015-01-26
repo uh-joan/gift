@@ -19,6 +19,9 @@ class CrawlerSelector
       # 2. change the purchase.status to processing
       @purchase.update_attribute(:status,'processing');
 
+      # 1,0 Send email??
+      @purchase.send_confirmation_email
+
       # 3. case the vendor and execute the corresponding crawler!!
       case @purchase.vendor
         when 'Starbucks' then StarbucksCrawler.call(@purchase)
