@@ -1,11 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.1.6'
-gem 'sass-rails', '~> 4.0.3'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
-gem 'bcrypt', '~> 3.1.7'
-gem 'pg'
+gem 'rails',          '4.2.0.beta4'
+gem 'sass-rails',     '5.0.0.beta1'
+gem 'uglifier',       '2.5.3'
+gem 'coffee-rails',   '~> 4.0.0'
+gem 'bcrypt',         '~> 3.1.7'
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'autoprefixer-rails'
 gem 'bower-rails'
@@ -16,10 +15,12 @@ gem 'stripe_event'
 gem 'ultrahook'
 gem 'mechanize'
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
-gem 'jquery-rails'
-gem 'turbolinks'
-gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'jquery-rails',   '4.0.0.beta2'
+gem 'turbolinks',     '2.3.0'
+gem 'jbuilder',       '2.2.3'
+gem 'arel',           '6.0.0.beta2'
+gem 'responders',     '~> 2.0'
+gem 'sdoc',           '~> 0.4.0',          group: :doc
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'
@@ -29,6 +30,7 @@ group :development, :test do
 end
 
 group :production do
+  gem 'pg'            , '0.17.1'
   gem 'rails_12factor', '0.0.2'
   gem 'unicorn',        '4.8.3'
 end

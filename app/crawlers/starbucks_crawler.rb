@@ -53,32 +53,32 @@ class StarbucksCrawler
   def self.call(purchase)
     Rails.logger.debug "Calling Starbucks Crawler #{purchase.to_json()}"
 
-    a = Mechanize.new{|a| a.ssl_version, a.verify_mode = 'SSLv3', OpenSSL::SSL::VERIFY_NONE}
-
-    a.get("https://www.starbucks.co.uk/account/signin") do |page|
-      puts "On Starbucks account signin"
-      # sign_in a, page
-      @session  = a.click(page.link_with(:text => /Sign In/))
-      puts "Sign in clicked"
-      @session = authenticate_session @session
-      puts "Successfully signed in!" if !not_logged_in? @session
-      @session = nil if not_logged_in? @session
-      puts 'Navigating to eGift Page.'
-      @session = a.click(page.link_with(:text => /Starbucks Card eGift/))
-      puts "On Starbucks Card egift"
-      @session = a.click(@session.link_with(:href => /anytime/))
-      puts "On anytime card egift page"
-      puts 'Adding eGift to Cart.'
-      add_egift_card_to_cart purchase
-      @session = nil if shopping_cart_not_updated? @session
-
-      raise "Unable to add eGift to shopping cart." if @session.nil?
-      confirm_shopping_cart_egift_amount
-      puts "confirmed eGift card, proceed to checkout!"
-      # add_egift_to_shopping_cart a, page
-      # purchase_egift_card a, page
-      #select_and_confirm_payment_method
-    end
+    # a = Mechanize.new{|a| a.ssl_version, a.verify_mode = 'SSLv3', OpenSSL::SSL::VERIFY_NONE}
+    #
+    # a.get("https://www.starbucks.co.uk/account/signin") do |page|
+    #   puts "On Starbucks account signin"
+    #   # sign_in a, page
+    #   @session  = a.click(page.link_with(:text => /Sign In/))
+    #   puts "Sign in clicked"
+    #   @session = authenticate_session @session
+    #   puts "Successfully signed in!" if !not_logged_in? @session
+    #   @session = nil if not_logged_in? @session
+    #   puts 'Navigating to eGift Page.'
+    #   @session = a.click(page.link_with(:text => /Starbucks Card eGift/))
+    #   puts "On Starbucks Card egift"
+    #   @session = a.click(@session.link_with(:href => /anytime/))
+    #   puts "On anytime card egift page"
+    #   puts 'Adding eGift to Cart.'
+    #   add_egift_card_to_cart purchase
+    #   @session = nil if shopping_cart_not_updated? @session
+    #
+    #   raise "Unable to add eGift to shopping cart." if @session.nil?
+    #   confirm_shopping_cart_egift_amount
+    #   puts "confirmed eGift card, proceed to checkout!"
+    #   # add_egift_to_shopping_cart a, page
+    #   # purchase_egift_card a, page
+    #   #select_and_confirm_payment_method
+    # end
 
   end
 end

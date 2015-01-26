@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 20141204131042) do
   end
 
   create_table "gifts", force: true do |t|
-    t.string   "title"
-    t.boolean  "completed"
+    t.string   "title",                              null: false
+    t.boolean  "completed",          default: false
     t.float    "lowerAmount"
     t.float    "higherAmount"
     t.string   "redeem"
