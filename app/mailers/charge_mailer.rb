@@ -11,8 +11,9 @@ class ChargeMailer < ActionMailer::Base
 
     @purchase = purchase
 
-    Rails.logger.debug "In charge confirmation for #{purchase.senderEmail.to_json()}"
-
+    # Rails.logger.debug "In charge confirmation for #{purchase.senderEmail.to_json()}"
+    puts "In charge confirmation for #{purchase.senderEmail.to_json()}"
+    
     mail to: purchase.senderEmail, subject: "Purchase confirmation"
 
     # @user = user

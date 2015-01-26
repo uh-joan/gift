@@ -6,7 +6,8 @@ class CrawlerSelector
     # in the description there is the purchase identifier uuid
     @purchase = Purchase.find_by_identifier(event.data.object.description);
 
-    Rails.logger.debug "Purchase payment confirmed."
+    # Rails.logger.debug "Purchase payment confirmed."
+    puts "Purchase payment confirmed"
 
     if @purchase.confirmedPayment == false
       # 1. Set the purchase.confirmedPayment to true
@@ -35,7 +36,8 @@ class CrawlerSelector
       end
 
     else
-      Rails.logger.debug "Oops. Something went wrong. The payment was previously confirmed."
+      # Rails.logger.debug "Oops. Something went wrong. The payment was previously confirmed."
+      puts "Oops. Something went wrong. The payment was previously confirmed."
     end
 
   end

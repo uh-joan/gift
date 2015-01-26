@@ -51,8 +51,8 @@ class StarbucksCrawler
   # end
 
   def self.call(purchase)
-    Rails.logger.debug "Calling Starbucks Crawler #{purchase.to_json()}"
-
+    # Rails.logger.debug "Calling Starbucks Crawler #{purchase.to_json()}"
+    puts "Calling Starbucks Crawler #{purchase.to_json()}"
 
     # a = Mechanize.new{|a| a.ssl_version, a.verify_mode = 'SSLv3', OpenSSL::SSL::VERIFY_NONE}
     #
