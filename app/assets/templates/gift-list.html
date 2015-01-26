@@ -1,13 +1,13 @@
 <div class="container-fluid">
 
     <div class="row">
-        <aside class="col-md-offset-4 col-md-3">
+        <aside class="col-xs-offset-4 col-xs-4">
             Search <input ng-model="query.title">
         </aside>
     </div>
     <br>
     <div class="row">
-        <div class="col-md-offset-4 col-md-3 thumbnail" ng-repeat="gift in gifts | filter:query">
+        <div class="col-xs-offset-4 col-xs-4 thumbnail" ng-repeat="gift in gifts | filter:query">
             <div class="caption">
                 <a href="#/agifts/{{gift.id}}"> {{gift.title}} </a>
                 <p>{{gift.shortDescription}}</p>
