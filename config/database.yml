@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: HEROKU_POSTGRESQL_AQUA_URL
-  username: HEROKU_POSTGRESQL_AQUA_URL_USER
+  database: <%= ENV['HEROKU_POSTGRESQL_AQUA_URL'] %>
+  username: <%= ENV['HEROKU_POSTGRESQL_AQUA_URL_USER'] %>
   password: <%= ENV['HEROKU_POSTGRESQL_AQUA_URL_PASSWORD'] %>
