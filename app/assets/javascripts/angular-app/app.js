@@ -1,8 +1,8 @@
 angular
     .module('app', ['ngRoute', 'ngResource', 'templates', 'angularPayments'])
-    .config(function() {
-        Stripe.setPublishableKey('pk_test_pim5DmVFetHEZO75KX8rAL1K');
-    })
+    //.config(function() {
+    //    Stripe.setPublishableKey('pk_test_pim5DmVFetHEZO75KX8rAL1K');
+    //})
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.
             when('/agifts', {
