@@ -1,4 +1,5 @@
-<h3>Shopping for {{purchase.vendor}}, total {{purchase.amount}}£</h3>
+<h3>Shopping for {{purchase.vendor}}, total £{{purchase.amount}}</h3>
+<small>Processing fee: £{{purchase.amount*0.034+0.2}}</small>
 <div class="container-fluid" >
     <!--<form stripe:form="saveCustomer">-->
     <form stripe-form="stripeCallback">

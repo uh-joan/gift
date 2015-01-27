@@ -69,7 +69,7 @@ angular
                 $scope.newCharge.stripeToken = token.id;
                 $scope.newCharge.email = $scope.purchase.senderEmail;
                 $scope.newCharge.identifier = $scope.purchase.identifier;
-                $scope.newCharge.amount = ($scope.purchase.amount*105)+30;
+                $scope.newCharge.amount = (($scope.purchase.amount*1034)/10)+20;
                 $scope.newCharge.$save(function (response){
                     Charge.get ({id:response.id}).$promise.then(
                         function (charge) {
