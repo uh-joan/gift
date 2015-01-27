@@ -8,13 +8,13 @@ class ChargeMailer < ActionMailer::Base
   #
 
   def charge_confirmation(purchase)
-    puts "in charge_confirmation..."
+    # puts "in charge_confirmation..."
     @greeting = "Hi"
 
     @purchase = purchase
 
     # Rails.logger.debug "In charge confirmation for #{purchase.senderEmail.to_json()}"
-    puts "In charge confirmation for #{purchase.senderEmail.to_json()}"
+    # puts "In charge confirmation for #{purchase.senderEmail.to_json()}"
 
     mail to: purchase.senderEmail, subject: "Purchase confirmation"
 
