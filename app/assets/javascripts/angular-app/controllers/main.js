@@ -1,8 +1,13 @@
 angular
     .module('app')
-    .controller('MainCtrl', ['Gift', '$scope', function (Gift, $scope) {
+    .controller('MainCtrl', ['Gift', '$scope', '$location', function (Gift, $scope, $location) {
 
         $scope.gifts = Gift.query();
+
+        $scope.gotoGift = function(url){
+            console.log('agifts/'+url);
+            $location.path ('agifts/'+url);
+        };
 
     }])
     .controller('GiftDetailCtrl', ['Gift', '$scope', '$routeParams', function (Gift, $scope, $routeParams) {
@@ -10,6 +15,7 @@ angular
         //$scope.gifts = Gift.query();
 
         $scope.gift = Gift.get({id:$routeParams.giftId});
+
 
         //$scope.giftId = $routeParams.giftId;
 

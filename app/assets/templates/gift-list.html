@@ -9,9 +9,9 @@
             </div>
             <br>
             <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12 thumbnail" ng-repeat="gift in gifts | filter:query">
+                <div class="col-md-12 col-sm-12 col-xs-12 thumbnail" ng-click="gotoGift(gift.id)" ng-repeat="gift in gifts | filter:query">
                     <div class="caption">
-                        <a href="#/agifts/{{gift.id}}"> {{gift.title}} </a>
+                        <p><em> {{gift.title}} </em></p>
                         <p>{{gift.shortDescription}}</p>
                     </div>
                 </div>
